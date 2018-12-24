@@ -1,14 +1,254 @@
-
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
-
 // Variables
 @import 'variables';
-
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+*, ::after, ::before {
+  box-sizing: border-box;
 }
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  color: rgba(0, 0, 0, .87);
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  background-color: #f9f9f9;
+  padding: 0;
+  margin: 0 !important;
+
+}
+
+a {
+  text-decoration: none;
+}
+
+.separator {
+  border-top: 1px solid rgba(122, 133, 102, .14);
+  margin-top: 12px;
+}
+
+.invalid-feedback {
+  display: flex;
+}
+
+.app {
+  margin-top: 40px;
+}
+
+.login {
+
+  .app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 0;
+  }
+
+  .alert {
+
+    box-sizing: border-box;
+    color: #c81919;
+    flex-direction: column;
+    font-size: 13px;
+    justify-content: center;
+    margin: 24px -1px -14px;
+    min-height: 8px;
+    padding: 0 32px;
+    text-align: center;
+
+  }
+
+  .login_box {
+    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, .12), 0 4px 5px 0 rgba(0, 0, 0, .14);
+    margin: auto;
+    background-color: #fcfcfc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    max-width: 384px;
+    padding: 25px 0;
+
+    &.messages {
+      box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .12), 0 2px 2px 0 rgba(0, 0, 0, .14);
+
+    }
+
+    .login__headline {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+
+      .login__headline--h1 {
+        font-weight: 600;
+        margin-bottom: 0;
+        color: $black;
+      }
+
+      .login__headline--h2 {
+        color: rgb(52, 58, 64);
+        margin-bottom: 0;
+        font-weight: 300;
+      }
+    }
+
+    .login_form {
+      font-size: 11px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 32px;
+      max-width: 272px;
+      width: 100%;
+
+      .form_group {
+        display: flex;
+        flex-direction: column;
+        margin-top: 12px;
+
+        label {
+          font-weight: 700;
+          margin-bottom: 0;
+          margin-top: 12px;
+
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+
+        .field-control {
+          background-color: #fff;
+          border: 1px solid rgba(0, 0, 0, .1);
+          border-radius: 2px;
+          box-sizing: border-box;
+          font-size: 13px;
+          margin-top: 6px;
+          padding: 8px;
+
+          &.is-invalid {
+            border: 1px solid $red;
+          }
+        }
+      }
+
+      button {
+        margin-top: 24px;
+        border: none;
+        border-radius: 2px;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .24), 0 1px 1px 0 rgba(0, 0, 0, .09);
+        color: #fff;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 400;
+        //  height: 32px;
+        text-align: center;
+        transition: all .3s ease;
+        width: 100%;
+
+        &:hover {
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3), 0 2px 3px 0 rgba(0, 0, 0, .17);
+        }
+
+      }
+
+      .forgot_password {
+        font-size: 13px;
+        margin-top: 16px;
+        padding-left: 16px;
+        padding-right: 16px;
+        text-align: center;
+        width: 100%;
+
+        a {
+          font-size: 13px;
+          padding: 0;
+        }
+      }
+
+      .sign_up_box {
+        color: rgba(0, 0, 0, .54);
+        font-size: 13px;
+        line-height: 1.46;
+        margin-bottom: 8px;
+        margin-top: 12px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+header {
+  background-color: white;
+  padding: 15px 0;
+  border-bottom: 2px solid #f6f6f6;
+
+  .header__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+
+    .site__header--brand {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      font-size: 1.6875rem;
+      color: $black;
+      text-decoration: none;
+
+      .site__header--headline-h1 {
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 0;
+      }
+
+      h2.site__header--headline-h2 {
+        color: #343a40;
+        margin-bottom: 0;
+        font-weight: 300;
+        font-size: 1.8rem;
+      }
+    }
+  }
+
+  nav {
+    display: flex;
+    justify-content: flex-end;
+
+    &.navbar__top {
+      flex: 1 0 auto;
+      width: 100%;
+    }
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      list-style: none;
+      margin: 0;
+
+      a {
+        padding: 8px;
+        color: $black;
+
+        &:hover {
+          text-decoration: none;
+        }
+
+        &.nav__link-active {
+          color: rgb(0, 123, 255);
+        }
+      }
+    }
+
+  }
+}
+
